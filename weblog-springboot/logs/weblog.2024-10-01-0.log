@@ -1,0 +1,7 @@
+2024-10-01 17:56:43.179 [main] INFO  com.qiccc.weblog.web.WeblogWebApplicationTests - Starting WeblogWebApplicationTests using Java 1.8.0_172 on DESKTOP-PO7JU8B with PID 12492 (started by qiccc in C:\Users\qiccc\Desktop\Weblog\Weblog\weblog-springboot\weblog-web)
+2024-10-01 17:56:43.180 [main] INFO  com.qiccc.weblog.web.WeblogWebApplicationTests - The following profiles are active: prod
+2024-10-01 17:56:45.016 [main] INFO  com.qiccc.weblog.web.WeblogWebApplicationTests - Started WeblogWebApplicationTests in 2.362 seconds (JVM running for 3.565)
+2024-10-01 17:56:45.345 [main] INFO  com.qiccc.weblog.web.WeblogWebApplicationTests - info log
+2024-10-01 17:56:45.347 [main] WARN  com.qiccc.weblog.web.WeblogWebApplicationTests - Warn Log
+2024-10-01 17:56:45.347 [main] ERROR com.qiccc.weblog.web.WeblogWebApplicationTests - Error Log
+2024-10-01 17:56:45.347 [main] INFO  com.qiccc.weblog.web.WeblogWebApplicationTests -  作者 :qiccc

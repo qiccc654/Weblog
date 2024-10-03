@@ -1,0 +1,3 @@
+# Log 日志
+logging:
+  config: classpath:logback-weblog.xml
