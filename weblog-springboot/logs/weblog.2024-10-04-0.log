@@ -1,0 +1,38 @@
+[TraceId: ] 2024-10-04 22:21:03.667 [main] INFO  com.qiccc.weblog.web.WeblogWebApplication - Starting WeblogWebApplication using Java 1.8.0_172 on DESKTOP-PO7JU8B with PID 9128 (C:\Users\qiccc\Desktop\Weblog\Weblog\weblog-springboot\weblog-web\target\classes started by qiccc in C:\Users\qiccc\Desktop\Weblog\Weblog\weblog-springboot)
+[TraceId: ] 2024-10-04 22:21:03.669 [main] INFO  com.qiccc.weblog.web.WeblogWebApplication - The following profiles are active: prod
+[TraceId: ] 2024-10-04 22:21:04.488 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[TraceId: ] 2024-10-04 22:21:04.489 [main] INFO  org.apache.catalina.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+[TraceId: ] 2024-10-04 22:21:04.489 [main] INFO  org.apache.catalina.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+[TraceId: ] 2024-10-04 22:21:04.491 [main] INFO  org.apache.catalina.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+[TraceId: ] 2024-10-04 22:21:04.493 [main] INFO  org.apache.catalina.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+[TraceId: ] 2024-10-04 22:21:04.500 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+[TraceId: ] 2024-10-04 22:21:04.500 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[TraceId: ] 2024-10-04 22:21:04.559 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[TraceId: ] 2024-10-04 22:21:04.559 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 855 ms
+[TraceId: ] 2024-10-04 22:21:04.900 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[TraceId: ] 2024-10-04 22:21:04.909 [main] INFO  com.qiccc.weblog.web.WeblogWebApplication - Started WeblogWebApplication in 1.781 seconds (JVM running for 2.647)
+[TraceId: ] 2024-10-04 22:21:39.697 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[TraceId: ] 2024-10-04 22:21:39.697 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[TraceId: ] 2024-10-04 22:21:39.698 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[TraceId: 1dfd5b57-1ed3-4220-8b7b-017f52904cc6] 2024-10-04 22:21:39.861 [http-nio-8080-exec-2] INFO  c.qiccc.weblog.common.aspect.ApiOperationLogAspect - ====== 请求开始: [测试接口], 入参: {"username":"admin","sex":1}, 请求类: TestController, 请求方法: test =================================== 
+[TraceId: 1dfd5b57-1ed3-4220-8b7b-017f52904cc6] 2024-10-04 22:21:39.878 [http-nio-8080-exec-2] INFO  c.qiccc.weblog.common.aspect.ApiOperationLogAspect - ====== 请求结束: [测试接口], 耗时: 29ms, 出参: {"username":"admin","sex":1} =================================== 
+[TraceId: 01f9d145-1f39-4d4a-99e0-dcd6abccd7f2] 2024-10-04 22:21:41.782 [http-nio-8080-exec-3] INFO  c.qiccc.weblog.common.aspect.ApiOperationLogAspect - ====== 请求开始: [测试接口], 入参: {"username":"admin","sex":1}, 请求类: TestController, 请求方法: test =================================== 
+[TraceId: 01f9d145-1f39-4d4a-99e0-dcd6abccd7f2] 2024-10-04 22:21:41.783 [http-nio-8080-exec-3] INFO  c.qiccc.weblog.common.aspect.ApiOperationLogAspect - ====== 请求结束: [测试接口], 耗时: 2ms, 出参: {"username":"admin","sex":1} =================================== 
+[TraceId: ] 2024-10-04 22:22:06.858 [main] INFO  com.qiccc.weblog.web.WeblogWebApplication - Starting WeblogWebApplication using Java 1.8.0_172 on DESKTOP-PO7JU8B with PID 14200 (C:\Users\qiccc\Desktop\Weblog\Weblog\weblog-springboot\weblog-web\target\classes started by qiccc in C:\Users\qiccc\Desktop\Weblog\Weblog\weblog-springboot)
+[TraceId: ] 2024-10-04 22:22:06.860 [main] INFO  com.qiccc.weblog.web.WeblogWebApplication - The following profiles are active: prod
+[TraceId: ] 2024-10-04 22:22:07.696 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[TraceId: ] 2024-10-04 22:22:07.697 [main] INFO  org.apache.catalina.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+[TraceId: ] 2024-10-04 22:22:07.697 [main] INFO  org.apache.catalina.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+[TraceId: ] 2024-10-04 22:22:07.698 [main] INFO  org.apache.catalina.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+[TraceId: ] 2024-10-04 22:22:07.701 [main] INFO  org.apache.catalina.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+[TraceId: ] 2024-10-04 22:22:07.709 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+[TraceId: ] 2024-10-04 22:22:07.709 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[TraceId: ] 2024-10-04 22:22:07.771 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[TraceId: ] 2024-10-04 22:22:07.771 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 867 ms
+[TraceId: ] 2024-10-04 22:22:08.108 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[TraceId: ] 2024-10-04 22:22:08.117 [main] INFO  com.qiccc.weblog.web.WeblogWebApplication - Started WeblogWebApplication in 1.798 seconds (JVM running for 2.551)
+[TraceId: ] 2024-10-04 22:22:18.579 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[TraceId: ] 2024-10-04 22:22:18.579 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[TraceId: ] 2024-10-04 22:22:18.579 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+[TraceId: 5c71aaa5-c934-4534-9749-bee0f3a98627] 2024-10-04 22:22:18.745 [http-nio-8080-exec-1] INFO  c.qiccc.weblog.common.aspect.ApiOperationLogAspect - ====== 请求开始: [测试接口], 入参: {"username":"admin","sex":1}, 请求类: TestController, 请求方法: test =================================== 
+[TraceId: 5c71aaa5-c934-4534-9749-bee0f3a98627] 2024-10-04 22:22:18.757 [http-nio-8080-exec-1] INFO  c.qiccc.weblog.common.aspect.ApiOperationLogAspect - ====== 请求结束: [测试接口], 耗时: 28ms, 出参: {"username":"admin","sex":1} =================================== 
