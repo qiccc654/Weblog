@@ -37,6 +37,7 @@
         <guava.version>31.1-jre</guava.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <jackson.version>2.15.2</jackson.version>
+        <knife4j.version>4.3.0</knife4j.version>
         <!-- 项目版本号 -->
         <revision>0.0.1-SNAPSHOT</revision>
         <java.version>1.8</java.version>
@@ -83,6 +84,12 @@
                 <version>${jackson.version}</version>
             </dependency>
 
+            <!-- knife4j（API 文档工具） -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
 
         </dependencies>
 
