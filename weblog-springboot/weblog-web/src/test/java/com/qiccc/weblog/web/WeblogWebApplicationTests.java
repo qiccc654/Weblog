@@ -1,13 +1,33 @@
 package com.qiccc.weblog.web;
 
+import com.qiccc.weblog.common.domain.dos.UserDO;
+import com.qiccc.weblog.common.domain.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Date;
 
 @SpringBootTest
 @Slf4j
 class WeblogWebApplicationTests {
+@Autowired
+private UserMapper userMapper;
 
+@Test
+void insertTest(){
+    UserDO userDO = UserDO.builder()
+            .username("qcc")
+            .password("11111")
+            .createTime(new Date())
+            .updateTime(new Date())
+            .isDeleted(false)
+            .build();
+
+    userMapper.insert(userDO);
+    //userMapper.deleteById(3);
+}
     @Test
     void contextLoads() {
     }
