@@ -10,4 +10,9 @@ jwt:
   issuer: qiccc
   # 秘钥
   secret: xcqu6G8Gok/6SgsI8hYy4DWUsEZYXGlrY2frTDqEHv5EdHUMznbMj0rnh/G3VuAZ4cbfhYVtEmvmWgtbhLZGUg==
-
+  # token 过期时间（单位：分钟） 24*60
+  tokenExpireTime: 1440
+  # token 请求头中的 key 值
+  tokenHeaderKey: Authorization
+  # token 请求头中的 value 值前缀
+  tokenPrefix: Bearer
