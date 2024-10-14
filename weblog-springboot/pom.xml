@@ -26,7 +26,7 @@
         <module>weblog-web</module>
         <module>weblog-module-admin</module>
         <module>weblog-module-common</module>
-
+        <module>weblog-module-jwt</module>
     </modules>
 
 
@@ -39,6 +39,9 @@
         <jackson.version>2.15.2</jackson.version>
         <knife4j.version>4.3.0</knife4j.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <p6spy.version>3.9.1</p6spy.version>
+        <jjwt.version>0.11.2</jjwt.version>
+
         <!-- 项目版本号 -->
         <revision>0.0.1-SNAPSHOT</revision>
         <java.version>1.8</java.version>
@@ -63,6 +66,12 @@
                 <groupId>com.qiccc</groupId>
                 <artifactId>weblog-module-common</artifactId>
                 <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.qiccc</groupId>
+                <artifactId>weblog-module-jwt</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
             <!-- 常用工具库 -->
@@ -97,8 +106,31 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-        </dependencies>
+            <!--p6spy打印sql语句和执行耗时-->
+            <dependency>
+                <groupId>p6spy</groupId>
+                <artifactId>p6spy</artifactId>
+                <version>${p6spy.version}</version>
+            </dependency>
 
+            <!--   JWT   -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+        </dependencies>
     </dependencyManagement>
 
     <build>

@@ -14,12 +14,11 @@ import java.util.Date;
 class WeblogWebApplicationTests {
 @Autowired
 private UserMapper userMapper;
-
 @Test
 void insertTest(){
     UserDO userDO = UserDO.builder()
-            .username("qcc")
-            .password("11111")
+            .username("qvcc")
+            .password("11411")
             .createTime(new Date())
             .updateTime(new Date())
             .isDeleted(false)

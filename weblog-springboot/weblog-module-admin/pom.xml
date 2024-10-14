@@ -20,6 +20,10 @@
             <groupId>com.qiccc</groupId>
             <artifactId>weblog-module-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.qiccc</groupId>
+            <artifactId>weblog-module-jwt</artifactId>
+        </dependency>
         <!-- 免写冗余的 Java 样板式代码 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -39,6 +43,13 @@
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
         </dependency>
+
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
