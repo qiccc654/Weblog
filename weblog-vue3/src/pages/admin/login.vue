@@ -51,6 +51,7 @@ import { User, Lock } from '@element-plus/icons-vue'
 import { login } from '@/api/admin/user'
 import { ref,reactive, onMounted, onBeforeUnmount } from 'vue' 
 import { useRouter } from 'vue-router';
+import { setToken } from '@/composables/auth'
 
 // 定义响应式的表单对象
 const form = reactive({
@@ -96,12 +97,19 @@ const onSubmit = () => {
         login(form.username, form.password).then((res) => {
             console.log(res)
             // 判断是否成功
-            if (res.data.success == true) {
+            if (res.success == true) {
                 // 跳转到后台首页
                 router.push('/admin/index')
+				// 存储 Token 到 Cookie 中
+				let token = res.data.token
+				setToken(token)
 
             }else{
-				alert('账号或密码错误')
+				/* // 获取服务端返回的错误消息
+				let message = res.message
+				// 提示消息
+				alert(message) */
+				alert("账号密码错误")
 							
 			}
         })
