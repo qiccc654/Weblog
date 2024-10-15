@@ -11,7 +11,7 @@
                 <img src="@/assets/工作.png" class="w-1/2">
             </div>
         </div>
-        <div class="col-span-2 order-1 md:col-span-1 md:order-2 bg-white">
+        <div class="col-span-2 order-1 md:col-span-1 md:order-2 bg-white">	
             <!-- flex-col 用于指定子元素垂直排列 -->
             <div class="flex justify-center items-center h-full flex-col animate__animated animate__bounceInRight animate__fast">
                 <!-- 大标题，设置字体粗细、大小、下边距 -->
@@ -37,7 +37,7 @@
                      </el-form-item>
                      <el-form-item>
                          <!-- 登录按钮，宽度设置为 100% -->
-                         <el-button class="w-full mt-2" size="large" type="primary" @click="onSubmit">登录</el-button>
+						 <el-button class="w-full mt-2" size="large" :loading="loading" type="primary" @click="onSubmit">登录</el-button>
                      </el-form-item>
                  </el-form>
             </div>
@@ -49,7 +49,7 @@
 // 引入 Element Plus 中的用户、锁图标
 import { User, Lock } from '@element-plus/icons-vue'
 import { login } from '@/api/admin/user'
-import { ref,reactive } from 'vue' 
+import { ref,reactive, onMounted, onBeforeUnmount } from 'vue' 
 import { useRouter } from 'vue-router';
 
 // 定义响应式的表单对象
@@ -59,6 +59,7 @@ const form = reactive({
 })
 
 
+const loading = ref(false)
 const router = useRouter()
 
 // 表单引用
@@ -89,7 +90,8 @@ const onSubmit = () => {
             console.log('表单验证不通过')
             return false
         }
-
+		// 开始加载
+		        loading.value = true
         // 调用登录接口
         login(form.username, form.password).then((res) => {
             console.log(res)
@@ -100,10 +102,32 @@ const onSubmit = () => {
 
             }else{
 				alert('账号或密码错误')
+							
 			}
         })
+		.finally(() => {
+			//结束加载
+			loading.value = false
+		})
     })
 }
 
+// 按回车键后，执行登录事件
+function onKeyUp(e) {
+    console.log(e)
+    if (e.key == 'Enter') {
+        onSubmit()
+    }
+}
 
+// 添加键盘监听
+onMounted(() => {
+    console.log('添加键盘监听')
+    document.addEventListener('keyup', onKeyUp)
+})
+
+// 移除键盘监听
+onBeforeUnmount(() => {
+    document.removeEventListener('keyup', onKeyUp)
+})
 </script>
