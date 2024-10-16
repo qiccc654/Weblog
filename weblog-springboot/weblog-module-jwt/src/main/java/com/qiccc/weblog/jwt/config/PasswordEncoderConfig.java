@@ -16,7 +16,7 @@ public class PasswordEncoderConfig {
 
     public static void main(String[] args) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        System.out.println(encoder.encode("qiccc"));
+        System.out.println(encoder.encode("test"));
     }
 }
 
