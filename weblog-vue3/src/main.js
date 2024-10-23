@@ -7,14 +7,20 @@ import App from '@/App.vue'
 import router from '@/router'
 // 导入全局路由守卫
 import '@/permission'
+// 引入全局状态管理 Pinia
+import pinia from '@/stores'
+
 
 // 导入 Element Plus 图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // 引入全局状态管理 Pinia
 import { createPinia } from 'pinia'
 
-const pinia = createPinia()
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
+/* const pinia = createPinia()
+//pinia持久化
+pinia.use(piniaPluginPersistedstate) */
 const app = createApp(App)
 // 引入图标
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
