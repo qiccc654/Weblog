@@ -105,7 +105,7 @@
 		watch
 	} from 'vue';
 	import {
-		showModel
+		showModel,showMessage
 	} from '@/composables/util'
 	import {
 		updateAdminPassword
@@ -147,7 +147,7 @@
 	function logout() {
 		showModel('是否确认要退出登录？').then(() => {
 			userStore.logout()
-			alert('退出登录成功！')
+			showMessage('退出登录成功！')
 			// 跳转登录页
 			router.push('/login')
 		})
