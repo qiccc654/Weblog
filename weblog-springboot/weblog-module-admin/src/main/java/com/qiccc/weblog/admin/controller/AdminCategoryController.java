@@ -1,8 +1,11 @@
 package com.qiccc.weblog.admin.controller;
 
 import com.qiccc.weblog.admin.model.vo.category.AddCategoryReqVO;
+import com.qiccc.weblog.admin.model.vo.category.DeleteCategoryReqVO;
 import com.qiccc.weblog.admin.service.AdminCategoryService;
 import com.qiccc.weblog.common.aspect.ApiOperationLog;
+import com.qiccc.weblog.common.model.FindCategoryPageListReqVO;
+import com.qiccc.weblog.common.utils.PageResponse;
 import com.qiccc.weblog.common.utils.Response;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,6 +29,27 @@ public class AdminCategoryController {
     @ApiOperationLog(description = "添加分类")
     public Response addCategory(@RequestBody @Validated AddCategoryReqVO addCategoryReqVO) {
         return categoryService.addCategory(addCategoryReqVO);
+    }
+
+
+    @PostMapping("/category/list")
+    @ApiOperation(value = "分类分页数据获取")
+    @ApiOperationLog(description = "分类分页数据获取")
+    public PageResponse findCategoryList(@RequestBody @Validated FindCategoryPageListReqVO findCategoryPageListReqVO) {
+        return categoryService.findCategoryList(findCategoryPageListReqVO);
+    }
+
+    @PostMapping("/category/delete")
+    @ApiOperation(value = "删除分类")
+    @ApiOperationLog(description = "删除分类")
+    public Response deleteCategory(@RequestBody @Validated DeleteCategoryReqVO deleteCategoryReqVO) {
+        return categoryService.deleteCategory(deleteCategoryReqVO);
+    }
+    @PostMapping("/category/select/list")
+    @ApiOperation(value = "分类 Select 下拉列表数据获取")
+    @ApiOperationLog(description = "分类 Select 下拉列表数据获取")
+    public Response findCategorySelectList() {
+        return categoryService.findCategorySelectList();
     }
 
 

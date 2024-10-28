@@ -53,7 +53,8 @@
 	// 引入 Element Plus 中的用户、锁图标
 	import {
 		User,
-		Lock
+		Lock,
+        Message
 	} from '@element-plus/icons-vue'
 	import {
 		login
@@ -73,6 +74,7 @@
 	import {
 		useUserStore
 	} from '@/stores/user'
+	import { showMessage } from '@/composables/util';
 	// 定义响应式的表单对象
 	const form = reactive({
 		username: '',
@@ -122,11 +124,11 @@
 						// 获取用户信息，并存储到全局状态中
 						userStore.setUserInfo()
 					} else {
-						/* // 获取服务端返回的错误消息
+						// 获取服务端返回的错误消息
 						let message = res.message
 						// 提示消息
-						alert(message) */
-						alert("账号密码错误")
+						
+						showMessage(message,"账号密码错误")
 
 					}
 				})
