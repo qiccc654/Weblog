@@ -96,7 +96,7 @@
   6. ##### 登录页表单验证
 
      1. 除了后端要校验外，前端也需要校验，并给予用户友好的提示信息。
-     2. `Element Plus` 提供的 Form 组件允许你验证用户的输入是否符合规范，来帮助你找到和纠正错误。只需为 `rules` 属性传入约定的验证规则，并将 `form-Item` 的 `prop` 属性设置为需要验证的特殊键值即可.
+     2. `Element Plus` 提供的 Form 组件允许你验证用户的输入是否符合规范，来帮助你找到和纠正错误。只需为 `rules` 属性传入约定的验证规则，并将 `form-Item` 的 `prop` 属性设置为需要验证的特殊键值即可.![image-20241030152605943](./assets/image-20241030152605943.png)
 
   7. ##### 回车键监听
 
@@ -199,19 +199,199 @@
 
 ### 文章分类模块开发
 
+1. #### 分类模块接口分析
+
+   1. **分类新增接口** : 当我们进入分类管理页面，点击新增按钮时，可以新增博客文章归属的分类，如下图所示：![image-20241030152717202](./assets/image-20241030152717202.png)
+
+   2. **分类数据分页接口** : 能够查询出博客分类的分页数据，支持按条件搜索，如按分类名称的模糊查询、按创建时间段查询。如图所示:
+
+      ![image-20241030152751130](./assets/image-20241030152751130.png)
+
+   3. **分类删除接口** : 能够根据自己的需要，删除指定的分类：![image-20241030152823287](./assets/image-20241030152823287.png)
+
+   4. **获取所有分类数据的下拉列表接口** : 这个接口主要在博客发布的时候需要，当想添加新的文章时，需要勾选该文章所属的分类：本章节中用不到此接口，我们先分析出来,后续再补充功能
+
+2. #### 新增接口开发
+
+   1. **添加分类表** : 分类表设计如图所示:
+
+      ![image-20241030153438983](./assets/image-20241030153438983.png)
+
+   2. **添加表对应的 DO 类** : 在 `weblog-module-common` 模块中的 `/domain/dos` 包下，创建 `CategoryDO` 实体类，字段与表中字段一一对应;
+
+   3. **新建 `mapper`** : 在 `/domain/mapper` 包下，创建 `CategoryMapper` 接口;
+
+   4. **添加入参 `VO` 实体类** : 在`weblog-module-admin` 子模块，在 `vo` 包下，新增 `category` 包;
+
+   5. **添加分类 service 业务类** : 在 `/service/impl` 包下，创建此接口的实现类 `AdminCategoryServiceImpl`
+
+   6. **添加 controller** : 在 `/controller` 包下，创建 `AdminCategoryController` 分类控制器
+
+3. #### 分页接口开发
+
+   1. **分页查询简述**  :  分页查询就是把**需要查询的数据集进行分批展示**，比如商品表中有 1万 条手机数据，每页按固定数量展示。分页接口允许客户端应用程序从服务器端获取数据的一个部分（即一页），而不是一次性获取所有数据。
+
+   2. **分页接口关键参数：**
+
+      1. **页码（Page Number）**：表示用户希望获取的页数。通常从第一页开始递增，用户可以选择跳转到不同的页码以获取不同的数据集。
+      2. **每页数据数量（Page Size）**：表示每一页包含的数据记录数量。用户可以设置每页显示多少条数据，这个值通常由用户自行选择或者由应用程序默认设定。
+      3. **总记录数（Total Records）**：表示整个数据集中的总数据记录数量。这个值通常用于计算总共有多少页数据可供分页使用。
+
+   3. **分页接口的好处 :** 
+
+      1. **性能优化**：对于大型数据集，一次性加载全部数据可能会导致网络请求变得非常慢，消耗大量的带宽和服务器资源。分页可以降低单次请求的数据量，提高数据的加载速度和性能。
+      2. **用户体验**：分页允许用户在大数据集中浏览数据，而不会被一大堆数据淹没。用户可以根据自己的需求轻松浏览不同页的数据，提供了更好的用户体验。
+      3. **服务器资源管理**：分页可以帮助服务器更好地管理资源。服务器只需提供客户端请求的那一部分数据，而不需要一次性加载整个数据集，从而减轻了服务器的负担。
+      4. **数据传输成本**：对于移动应用或者有限带宽的网络环境，减少一次性传输的数据量可以降低数据传输成本。
+
+   4. **开始开发分页接口** 
+
+      1. **定义接口出入参 `JSON` 格式** : 
+
+         1. **入参 `JSON` 格式**：
+
+            ```json
+            {
+              "current": 1, // 要查询的页码
+              "size": 10, // 每页要展示的数据量
+              "name": "", // 分类名称
+              "startDate": "", // 起始创建时间
+              "endDate": "", // 结束创建时间
+            
+            }
+            ```
+
+            ​		
+
+         2. **出参 `JSON` 格式** :
+
+         ```
+         {
+           "success": true,
+           "message": null,
+           "errorCode": null,
+           "data": [
+             {
+               "name": "测试分类",
+               "createTime": "2023-09-18 12:02:31"
+             },
+             {
+               "name": "test",
+               "createTime": "2023-09-18 11:48:58"
+             }
+           ],
+           "total": 4, // 总记录数
+           "size": 10, // 每页展示的记录数
+           "current": 1, // 当前页码
+           "pages": 1 // 总共多少页
+         }
+         ```
+
+      2. **`Mybatis Plus` 添加分页插件** :该插件可以帮助我们在 Mybatis Plus 中，方便地实现分页功能。编辑 `MybatisPlusConfig` 配置类，添加分页插件
+
+      3. 添加基本`CRUD`操作 : 
+
+         1. **添加表对应的 DO 类** 
+         2. **新建 `mapper`** : 在 `/domain/mapper` 包下，创建 `CategoryMapper` 接口;
+         3. **添加入参 `VO` 实体类** : 在`weblog-module-admin` 子模块，在 `vo` 包下，新增 `category` 包;
+         4. **添加分类 service 业务类** : 在 `/service/impl` 包下，创建此接口的实现类 `AdminCategoryServiceImpl`
+         5. **添加 controller** : 在 `/controller` 包下，创建 `AdminCategoryController` 分类控制器
+
+      4. ##### 模糊查询
+
+         1. 首先拿到了提交过来的查询页码、每页需要展示的数据数量两个字段，通过它们初始化了一个 `Page` 分页对象。然后，构建 `SQL` 的查询条件，包括当分类不为空时，添加名称的模糊查询；区间字段不为空时，构建 `create_time` 字段的大于等于、小于等于筛选，以及按创建时间倒叙排列。
+
+            条件构建完毕后，通过调用 `categoryMapper.selectPage()` 方法执行分页查询，分页插件会自动帮助我们执行两条 `SQL` , `select count(*)` 用于查询记录总数，若有数据，则执行 `limit` 分页语句
+
+         2. ```java
+                @Autowired
+                private CategoryMapper categoryMapper;
+               
+                @Override
+                public PageResponse findCategoryList(FindCategoryPageListReqVO findCategoryPageListReqVO) {
+                    // 获取当前页、以及每页需要展示的数据数量
+                    Long current = findCategoryPageListReqVO.getCurrent();
+                    Long size = findCategoryPageListReqVO.getSize();
+            
+                    // 分页对象(查询第几页、每页多少数据)
+                    Page<CategoryDO> page = new Page<>(current, size);
+            
+                    // 构建查询条件
+                    LambdaQueryWrapper<CategoryDO> wrapper = new LambdaQueryWrapper<>();
+            
+                    String name = findCategoryPageListReqVO.getName();
+                    LocalDate startDate = findCategoryPageListReqVO.getStartDate();
+                    LocalDate endDate = findCategoryPageListReqVO.getEndDate();
+            
+                    wrapper
+                        .like(StringUtils.isNotBlank(name), CategoryDO::getName, name.trim()) // like 模块查询
+                        .ge(Objects.nonNull(startDate), CategoryDO::getCreateTime, startDate) // 大于等于 startDate
+                        .le(Objects.nonNull(endDate), CategoryDO::getCreateTime, endDate)  // 小于等于 endDate
+                        .orderByDesc(CategoryDO::getCreateTime); // 按创建时间倒叙
+            
+                    // 执行分页查询
+                    Page<CategoryDO> categoryDOPage = categoryMapper.selectPage(page, wrapper);
+            
+                    List<CategoryDO> categoryDOS = categoryDOPage.getRecords();
+            
+                    // DO 转 VO
+                    List<FindCategoryPageListRspVO> vos = null;
+                    if (!CollectionUtils.isEmpty(categoryDOS)) {
+                        vos = categoryDOS.stream()
+                                .map(categoryDO -> FindCategoryPageListRspVO.builder()
+                                        .id(categoryDO.getId())
+                                        .name(categoryDO.getName())
+                                        .createTime(categoryDO.getCreateTime())
+                                        .build())
+                                .collect(Collectors.toList());
+                    }
+            
+                    return PageResponse.success(categoryDOPage, vos);
+                }
+            
+            ```
+
+      5. ### 
+
+4. #### 删除接口开发
+
+   1. 拿到了分类 ID, 然后通过 `categoryMapper` 内部封装好的 `deleteById()` 方法，直接将主键 ID 传入，执行删除 `SQL`
+
+5. #### 样式布局
+
+   1. **样式分析 :** 包含三部分:
+
+      - 顶部的分页搜索条件区域，主持按分类名称、创建时间来搜索；
+
+      - ![image-20241030162242318](./assets/image-20241030162242318.png)
+
+      - 中间的分类列表区域；
+
+      - ![image-20241030162252727](./assets/image-20241030162252727.png)
+
+      - 下方的分页区域，能够展示总数据量、每页展示多少条数据、当前页码等；
+
+      - ![image-20241030162315475](./assets/image-20241030162315475.png)
+
+   2. **添加顶部搜索** : 
+
+      1. 通过 `<el-card>` [卡片组件](https://element-plus.org/zh-CN/component/card.html) 作为顶层容器，目的是为了实现一个卡片效果，同时，设置了其 `shadow="never"` 属性，指定卡片没有阴影。里层我们引入了多个 Element Plus 组件，包括 `<el-text>` 文字、`<el-input>` 输入框、`<el-date-picker>` [日期选择](https://element-plus.org/zh-CN/component/date-picker.html) 多个组件，这里我讲讲 `<el-date-picker>` 日期选择组件中，用到的每个属性的意思：
+         - `type` : 日期选择类型，`daterange` 表示类型为区间选择；
+         - `range-separator` ： 选择范围时的分隔符；
+         - `start-placeholder` ： 范围选择时开始日期的占位内容；
+         - `end-placeholder` ： 范围选择时结束日期的占位内容；
+
+   3. **添加中间 Table 表格** : 
+
+      1. 在顶部搜索布局下方，再新增一个卡片组件，然后在其中，添加一个新增按钮，以及 `<el-table>` 表格组件。关于表格组件，`:data` 属性用于渲染表格内数据，和变量 `tableData` 绑定到了一起，`border` 用于指定表格带边框，`stripe` 用于指定斑马纹效果。这里注意，*操作*一栏并非展示数据，而是添加了删除按钮。
+
+   4. **添加下方分页组件** : 
+
+      1. 官方也提供了现成的,还是简述参数功能:
+         1. `v-model:current-page="current"` : 绑定当前页码，默认为 1；
+         2. `v-model:page-size="size"` : 绑定每页显示的数据量，默认为 10；
+         3. `:page-sizes="[10, 20, 50]"` : 指定每页显示多少条数据，有几种选项，如每页展示 10 条；
+         4. `layout="total, sizes, prev, pager, next, jumper"` ： 指定分页组件的布局顺序，小哈这里指的是：总数据量在最前，跟着每页展示多少数据，上一页，当前页，下一页，跳转到指定页。
 
 
-​		
-
-
-
-
-
-
-
-
-
-
-
-
-
+### 标签模块开发
