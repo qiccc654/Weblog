@@ -1,6 +1,9 @@
-package com.qiccc.weblog.admin.model.vo.category;
+package com.qiccc.weblog.admin.model.vo.tag;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -8,14 +11,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FindCategoryPageListRspVO {
+public class FindTagPageListRspVO {
     /**
-     * 分类 ID
+     * 标签 ID
      */
     private Long id;
 
     /**
-     * 分类名称
+     * 标签名称
      */
     private String name;
 

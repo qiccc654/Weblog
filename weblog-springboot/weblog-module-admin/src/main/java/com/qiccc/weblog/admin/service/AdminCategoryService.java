@@ -2,7 +2,7 @@ package com.qiccc.weblog.admin.service;
 
 import com.qiccc.weblog.admin.model.vo.category.AddCategoryReqVO;
 import com.qiccc.weblog.admin.model.vo.category.DeleteCategoryReqVO;
-import com.qiccc.weblog.common.model.FindCategoryPageListReqVO;
+import com.qiccc.weblog.admin.model.vo.category.FindCategoryPageListReqVO;
 import com.qiccc.weblog.common.utils.PageResponse;
 import com.qiccc.weblog.common.utils.Response;
 
@@ -18,7 +18,7 @@ public interface AdminCategoryService {
      * @param findCategoryPageListReqVO
      * @return
      */
-    PageResponse findCategoryList(FindCategoryPageListReqVO findCategoryPageListReqVO);
+    PageResponse findCategoryPageList(FindCategoryPageListReqVO findCategoryPageListReqVO);
 
     /**
      * 删除分类

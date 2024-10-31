@@ -4,7 +4,7 @@ import com.qiccc.weblog.admin.model.vo.category.AddCategoryReqVO;
 import com.qiccc.weblog.admin.model.vo.category.DeleteCategoryReqVO;
 import com.qiccc.weblog.admin.service.AdminCategoryService;
 import com.qiccc.weblog.common.aspect.ApiOperationLog;
-import com.qiccc.weblog.common.model.FindCategoryPageListReqVO;
+import com.qiccc.weblog.admin.model.vo.category.FindCategoryPageListReqVO;
 import com.qiccc.weblog.common.utils.PageResponse;
 import com.qiccc.weblog.common.utils.Response;
 import io.swagger.annotations.Api;
@@ -35,8 +35,8 @@ public class AdminCategoryController {
     @PostMapping("/category/list")
     @ApiOperation(value = "分类分页数据获取")
     @ApiOperationLog(description = "分类分页数据获取")
-    public PageResponse findCategoryList(@RequestBody @Validated FindCategoryPageListReqVO findCategoryPageListReqVO) {
-        return categoryService.findCategoryList(findCategoryPageListReqVO);
+    public PageResponse findCategoryPageList(@RequestBody @Validated FindCategoryPageListReqVO findCategoryPageListReqVO) {
+        return categoryService.findCategoryPageList(findCategoryPageListReqVO);
     }
 
     @PostMapping("/category/delete")
