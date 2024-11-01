@@ -9,7 +9,7 @@
 				<h2 class="font-bold text-4xl mb-7 text-white">Weblog 博客登录</h2>
 				<p class="text-white">一款由 Spring Boot + Mybaits Plus + Vue 3.2 + Vite 4 开发的前后端分离博客。</p>
 				<!-- 指定图片宽度为父级元素的 1/2 -->
-				<img src="@/assets/工作.png" class="w-1/2">
+				<img src="https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/img/%E5%B7%A5%E4%BD%9C.png" class="w-1/2">
 			</div>
 		</div>
 		<div class="col-span-2 order-1 md:col-span-1 md:order-2 bg-white">

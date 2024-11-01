@@ -33,6 +33,7 @@
     <!-- 版本号统一管理 -->
     <properties>
         <!-- 依赖包版本 -->
+        <java.version>1.8.0_172</java.version>
         <lombok.version>1.18.28</lombok.version>
         <guava.version>31.1-jre</guava.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
@@ -41,6 +42,8 @@
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <p6spy.version>3.9.1</p6spy.version>
         <jjwt.version>0.11.2</jjwt.version>
+        <oos.version>3.10.2</oos.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
 
         <!-- 项目版本号 -->
         <revision>0.0.1-SNAPSHOT</revision>
@@ -130,6 +133,21 @@
                 <version>${jjwt.version}</version>
             </dependency>
 
+            <!--阿里云oos-->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${oos.version}</version>
+            </dependency>
+
+            <!-- Mapstruct 属性映射 -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 
@@ -149,6 +167,28 @@
                         </excludes>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source> <!-- 根据你的 JDK 版本进行调整 -->
+                        <target>${java.version}</target> <!-- 根据你的 JDK 版本进行调整 -->
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                            </path>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${mapstruct.version}</version> <!-- 使用时请检查最新版本 -->
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
+
             </plugins>
         </pluginManagement>
     </build>

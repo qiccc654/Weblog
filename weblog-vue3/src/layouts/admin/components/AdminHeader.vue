@@ -1,4 +1,5 @@
 <template>
+	<el-affix :offset="0">
 	<!-- 通过 flex 指定水平布局 -->
 	<div class="bg-white h-[64px] flex pr-4 border-b border-slate-100">
 		<!-- 左边栏收缩、展开 -->
@@ -82,7 +83,7 @@
 
 		</div>
 	</div>
-
+</el-affix>   
 </template>
 
 <script setup>
