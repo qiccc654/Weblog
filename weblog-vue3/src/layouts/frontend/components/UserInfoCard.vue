@@ -7,12 +7,13 @@
             <!-- 博主昵称 -->
             <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ blogSettingsStore.blogSettings.author }}</h5>
             <!-- 介绍语 -->
-            <span class="text-sm text-gray-500 dark:text-gray-400">{{ blogSettingsStore.blogSettings.introduction }}</span>
+            <span class="text-sm text-gray-500 dark:text-gray-400 mb-2" >{{ blogSettingsStore.blogSettings.introduction }}</span>
             <!-- 第三方平台主页跳转（如 GitHub 等） -->
-            <div class="flex justify-center  gap-2">
+			
+            <div class="flex justify-center  items-center gap-2">
                 <!-- GitHub -->
                 <svg v-if="blogSettingsStore.blogSettings.githubHomepage" t="1698029949662" data-tooltip-target="github-tooltip-bottom" data-tooltip-placement="bottom"
-                    class="icon w-7 h-7" mt-5 viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    class="icon w-7 h-7 " mt-5 viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                     p-id="1447" width="200" height="200" @click="jump(blogSettingsStore.blogSettings.githubHomepage)">
                     <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#4186F5" p-id="1448"></path>
                     <path
@@ -70,7 +71,8 @@
                     <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
             </div>
-        </div>
+       
+		</div>
     </div>
 </template>
 

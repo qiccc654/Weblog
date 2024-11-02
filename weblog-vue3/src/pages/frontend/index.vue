@@ -53,7 +53,7 @@
 											stroke-width="2"
 											d="M1 5v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H1Zm0 0V2a1 1 0 0 1 1-1h5.443a1 1 0 0 1 .8.4l2.7 3.6H1Z" />
 									</svg>
-									<a href="#" class="text-gray-400 hover:underline">{{ article.category.name }}</a>
+									<a href="#" class="text-gray-400 hover:underline">{{ article.categoryname }}</a>
 								</p>
 							</div>
 						</div>
@@ -140,7 +140,7 @@
 	// 当前页码
 	const current = ref(1)
 	// 每页显示的文章数
-	const size = ref(1)
+	const size = ref(4)
 
 
 
