@@ -30,7 +30,7 @@
 			</div>
 
 			<!-- 分页列表 -->
-			<el-table :data="tableData" border stripe style="width: 100%" :height="280" v-loading="tableLoading">
+			<el-table :data="tableData" border stripe style="width: 100%"  v-loading="tableLoading">
 				<el-table-column prop="title" label="标题" width="180" />
 				<el-table-column prop="cover" label="封面" width="280"  >
 					<template #default="scope">

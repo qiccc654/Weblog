@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getToken } from "./composables/auth";
 import { removeToken } from '@/composables/cookie'
+import { useUserStore } from '@/stores/user'
 // 创建 Axios 实例
 const instance = axios.create({
     baseURL: "/api", // 你的 API 基础 URL
@@ -33,8 +34,9 @@ instance.interceptors.response.use(function (response) {
 
     // 状态码 401
     if (status == 401) {
-        // 删除 cookie 中的令牌
-        removeToken()
+        // 退出登录
+        let userStore = useUserStore()
+        userStore.logout()
         // 刷新页面
         location.reload()
     }
