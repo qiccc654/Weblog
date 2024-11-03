@@ -9,12 +9,12 @@
 			<div class="col-span-4 md:col-span-3 mb-3 ">
 				<!-- 文章列表，grid 表格布局，分为 2 列 -->
 				<div class="grid grid-cols-2 mb-3 gap-4">
-					<div v-for="(article, index) in articles" :key="index" class="col-span-2 md:col-span-1 ">
+					<div v-for="(article, index) in articles" :key="index" class="col-span-2 md:col-span-1">
 						<div
-							class="bg-white h-full border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 ">
+							class="bg-white h-full border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
 							<!-- 文章封面 -->
-							<a href="#">
-								<img class="rounded-t-lg h-55 w-full" :src="article.cover" />
+							<a @click="goArticleDetailPage(article.id)" class="cursor-pointer">
+								<img class="rounded-t-lg h-48 w-full" :src="article.cover" />
 							</a>
 							<div class="p-5">
 								<!-- 标签 -->
@@ -25,7 +25,7 @@
 									</span>
 								</div>
 								<!-- 文章标题 -->
-								<a href="#">
+								<a @click="goArticleDetailPage(article.id)" class="cursor-pointer">
 									<h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 										{{ article.title }}
 									</h2>
@@ -67,9 +67,9 @@
 				<UserInfoCard></UserInfoCard>
 
 				<!-- 分类 -->
-			 <CategoryListCard></CategoryListCard>
-			<!-- 标签 -->
-			<TagListCard></TagListCard>
+				<CategoryListCard></CategoryListCard>
+				<!-- 标签 -->
+				<TagListCard></TagListCard>
 			</aside>
 		</div>
 		<!-- 分页 -->
@@ -134,6 +134,7 @@
 	import {
 		getArticlePageList
 	} from '@/api/frontend/article'
+	import { useRouter } from 'vue-router'
 
 	// 文章集合
 	const articles = ref([])
@@ -174,4 +175,9 @@
 		})
 	}
 	getArticles(current.value)
+const router = useRouter()
+	// 跳转文章详情页
+	const goArticleDetailPage = (articleId) => {
+		router.push('/article/' + articleId)
+	}
 </script>

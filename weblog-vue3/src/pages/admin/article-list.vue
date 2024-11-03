@@ -30,9 +30,10 @@
 			</div>
 
 			<!-- 分页列表 -->
-			<el-table :data="tableData" border stripe style="width: 100%"  v-loading="tableLoading">
+			<el-table :data="tableData" border stripe style="width: 100%" v-loading="tableLoading">
+				<el-table-column prop="id" label="ID" width="50" />
 				<el-table-column prop="title" label="标题" width="180" />
-				<el-table-column prop="cover" label="封面" width="280"  >
+				<el-table-column prop="cover" label="封面" width="280">
 					<template #default="scope">
 						<el-image style="width: 50px;" :src="scope.row.cover" />
 					</template>
@@ -46,6 +47,11 @@
 								<Edit />
 							</el-icon>
 							编辑</el-button>
+						<el-button size="small" @click="goArticleDetailPage(scope.row.id)">
+							<el-icon class="mr-1">
+								<View />
+							</el-icon>
+							预览</el-button>
 						<el-button type="danger" size="small" @click="deleteArticleSubmit(scope.row)">
 							<el-icon class="mr-1">
 								<Delete />
@@ -54,6 +60,7 @@
 						</el-button>
 					</template>
 				</el-table-column>
+
 			</el-table>
 
 			<!-- 分页 -->
@@ -208,6 +215,9 @@
 		reactive
 	} from 'vue'
 	import {
+		useRouter
+	} from 'vue-router'
+	import {
 		Search,
 		RefreshRight
 	} from '@element-plus/icons-vue'
@@ -249,7 +259,8 @@
 	// 查询条件：开始结束时间
 	const startDate = reactive({})
 	const endDate = reactive({})
-
+	//引用router
+	const router = useRouter()
 	// 监听日期组件改变事件，并将开始结束时间设置到变量中
 	const datepickerChange = (e) => {
 		startDate.value = moment(e[0]).format('YYYY-MM-DD')
@@ -588,6 +599,11 @@
 				getTableData()
 			})
 		})
+	}
+
+	// 跳转文章详情页
+	const goArticleDetailPage = (articleId) => {
+		router.push('/article/' + articleId)
 	}
 </script>
 <style scoped>

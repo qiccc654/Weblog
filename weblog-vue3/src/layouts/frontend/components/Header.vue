@@ -1,5 +1,5 @@
 <template>
-	<header class="sticky top-0 z-100">
+	<header class="sticky top-0 z-10">
 		<nav class="bg-white border-gray-200 border-b dark:bg-gray-900">
 			<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 				<!-- 博客 LOGO 、博客名称 -->

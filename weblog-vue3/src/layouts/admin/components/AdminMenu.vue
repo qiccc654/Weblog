@@ -2,7 +2,7 @@
 	<div class=" fixed overflow-y-auto bg-slate-800 h-screen text-white menu-container transition-all" :style="{ width: menuStore.menuWidth }">
 		<!-- 顶部 Logo, 指定高度为 64px, 和右边的 Header 头保持一样高 -->
 		<div class="flex items-center justify-center h-[64px]">
-			<img src="https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/img/signature.png" class="w-100%" />
+			<img src="https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/img/signature.png" class="w-100% cursor-pointer" @click="router.push('/')" />
 		</div>
 
 		<!-- 下方菜单 -->

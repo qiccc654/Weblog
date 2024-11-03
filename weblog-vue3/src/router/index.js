@@ -11,6 +11,8 @@ import ArchiveList from '@/pages/frontend/archive-list.vue'
 import CategoryArticleList from '@/pages/frontend/category-article-list.vue'
 import TagList from '@/pages/frontend/tag-list.vue'
 import TagArticleList from '@/pages/frontend/tag-article-list.vue'
+import ArticleDetail from '@/pages/frontend/article-detail.vue'
+import NotFound from '@/pages/frontend/404.vue'
 
 import {
 	createRouter,
@@ -62,6 +64,13 @@ const routes = [{
 		            title: 'Weblog 分类文章页'
 		        }
 		    },
+			{
+			        path: '/article/:articleId', // 文章详情页
+			        component: ArticleDetail,
+			        meta: { // meta 信息
+			            title: 'Weblog 详情页'
+			        }
+			    },
 	{
 		path: '/archive/list', // 归档页
 		component: ArchiveList,
@@ -69,6 +78,14 @@ const routes = [{
 			title: 'Weblog 归档页'
 		}
 	},
+	{
+	       path: '/:pathMatch(.*)*',
+	       name: 'NotFound',
+	       component: NotFound,
+	       meta: {
+	           title: '404 页'
+	       }
+	   },
 
 	{
 		path: "/admin", // 后台首页
@@ -109,6 +126,7 @@ const routes = [{
 					title: '博客设置'
 				}
 			},
+			
 			
 		]
 
