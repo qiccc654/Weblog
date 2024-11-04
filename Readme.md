@@ -7,10 +7,7 @@
 ## 项目演示
 
 <video src="https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/video/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4"></video>
-<video width="320" height="240" controls>
-  <source src="https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/video/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[演示视频链接](https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/video/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4)
 
 ### 项目目标
 
