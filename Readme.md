@@ -6,7 +6,11 @@
 
 ## 项目演示
 
-<video src="https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/video/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4"></video>
+
+https://github.com/user-attachments/assets/8b0cfda8-267b-4f47-9547-1148e84757b1
+
+
+
 
 [在线演示地址](http://82.156.158.155/#/)
 
