@@ -13,6 +13,7 @@ https://github.com/user-attachments/assets/8b0cfda8-267b-4f47-9547-1148e84757b1
 
 
 [在线演示地址](http://82.156.158.155/#/)
+> assets文件夹包含完整演示视频(内嵌视频加载缓慢)
 
 ### 项目目标
 
