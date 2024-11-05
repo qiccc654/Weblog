@@ -7,6 +7,9 @@
 ## 项目演示
 
 <video src="https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/video/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4"></video>
+[演示视频链接](https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/video/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4)
+
+[观看视频](https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/video/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4)
 
 ### 项目目标
 
@@ -45,7 +48,7 @@
   8. 整合 `Mybatis Plus` : **快速开发**：`MyBatis Plus` 提供了一系列的便捷功能，如自动生成 SQL 语句、通用 Mapper 等，使数据库操作更加高效，能够节省开发时间。**更少的配置**： Spring Boot 已经为我们提供了很多默认的配置，整合 MyBatis Plus 时只需少量的配置，减少了繁琐的配置步骤。
   9. 整合p6spy 组件 : 一方面可以了解到每个操作都具体**执行的什么 `SQL` 语句**， 另一方面通过**打印执行耗时**，也可以提前发现一些慢 `SQL`，提前做好优化;
   10. 整合 Spring Security : 作为 Spring 框架的一部分，Spring Security 提供了强大的功能，帮助开发人员实现**身份认证、授权、会话管理以及其他与安全**相关的任务。
-  11. 整合 `JWT` ：实现身份认证 : `JWT（JSON Web Token）`是一种用于在不同应用之间安全传输信息的开放标准（RFC 7519）。它是一种基于 JSON 的轻量级令牌，由三部分组成：头部（Header）、载荷（Payload）和签名（Signature）。JWT 被广泛用于实现身份验证和授权，**特别适用于前后端分离的应用程序**。当用户名、密码输入正确时，返回 Token 令牌，否则提示错误信息。
+  11. 整合 `JWT` ：实现身份认证 : `JWT（JSON Web Token）`是一种用于在不同应用之间安全传输信息的开放标准（RFC 7519）。它是一种基于 `JSON` 的轻量级令牌，由三部分组成：头部（Header）、载荷（Payload）和签名（Signature）。`JWT` 被广泛用于实现身份验证和授权，**特别适用于前后端分离的应用程序**。当用户名、密码输入正确时，返回 Token 令牌，否则提示错误信息。
   12. `JWT` ：实现接口鉴权 : 在现代的 Web 应用程序中，接口鉴权是一个重要的安全考虑因素。**通过接口鉴权，您可以确保只有经过身份验证和授权的用户能够访问特定的接口和资源。**我们通过 `Spring Security + JWT` 已经实现了用户认证功能，新增后端程序中拿到令牌，对接口进行鉴权，若令牌正确，则可正常访问接口资源，否则提示对应错误信息。
   13. 阿里云`oos` : 存储图片上云
   14.  

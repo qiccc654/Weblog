@@ -50,7 +50,7 @@
 				<el-dropdown class="flex items-center justify-center" @command="handleCommand">
 					<span class="el-dropdown-link flex items-center justify-center text-gray-700 text-xs">
 						<!-- 头像 Avatar -->
-						<el-avatar class="mr-2" :size="30" src="@/assets/头像.png" />
+						<el-avatar class="mr-2" :size="30" src="https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/img/2024/11/01/68844a312407477086bf578df858fe89.png" />
 						{{ userStore.userInfo.username }}
 						<el-icon class="el-icon--right">
 							<arrow-down />

@@ -38,7 +38,7 @@
 						@click="$router.push('/login')">登录</div>
 					<!-- 已经登录，展示用户头像 -->
 					<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" v-else
-						class="text-white ml-2  mr-2 md:mr-0 :ring-4 focus:ring-blue-300 font-medium rounded-full text-sm text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+						class="text-white ml-2  mr-2 md:mr-0 :ring-4 focus:ring-blue-300 font-medium  text-sm text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 						type="button">
 						<!-- 用户登录头像 -->
 						<img class="w-8 h-8 rounded-full" :src="blogSettingsStore.blogSettings.avatar" alt="user photo">
