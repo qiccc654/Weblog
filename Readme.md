@@ -8,6 +8,8 @@
 
 <video src="https://qiccc-weblog.oss-cn-beijing.aliyuncs.com/video/%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91.mp4"></video>
 
+[在线演示地址](http://82.156.158.155/#/)
+
 ### 项目目标
 
 > 1. 掌握独立开发全栈项目的能力（*后端 + 前端*）；
